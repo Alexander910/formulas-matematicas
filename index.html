@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Biblioteca de Fórmulas — Premium</title>
+
+  <!-- MathJax -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" async></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Icons (system-like) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div>
+          <h1>Fórmulas · Biblioteca</h1>
+          <p class="subtitle">Cálculo • Trigonometría • Geometría • Series</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <!-- Left column: subir archivos y lista -->
+      <section class="card upload-card">
+        <h2>Subir Documentos</h2>
+
+        <div id="uploadArea" class="upload-area">
+          <div class="upload-emoji">📄</div>
+          <input id="fileInput" type="file" accept="application/pdf" multiple>
+          <button class="btn primary" id="selectBtn">Seleccionar archivos</button>
+        </div>
+
+        <div class="files-list" id="fileList" aria-live="polite"></div>
+
+        <div id="pdfViewer" class="pdf-viewer">
+          <p class="muted">Selecciona un archivo para visualizar</p>
+        </div>
+      </section>
+
+      <!-- Right column: formulas -->
+      <section class="card formulas-card">
+        <h2>Formulario de Cálculo & Trigonometría</h2>
+
+        <div class="formulas">
+          <!-- Derivadas -->
+          <div class="category">
+            <h3>Derivadas</h3>
+            <div class="item">
+              <div class="title">Regla de la potencia</div>
+              <div class="tex">\( \dfrac{d}{dx} x^n = n x^{n-1} \)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Suma / Constante</div>
+              <div class="tex">\( (f+g)'=f'+g' \quad,\quad (c f)'=c f' \)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Producto</div>
+              <div class="tex">\( (f g)' = f'g + f g' \)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Cociente</div>
+              <div class="tex">\( \left(\dfrac{f}{g}\right)' = \dfrac{f' g - f g'}{g^2} \)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Cadena</div>
+              <div class="tex">\( (f\circ g)'(x) = f'(g(x))\; g'(x) \)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Derivadas comunes</div>
+              <div class="tex">
+                \( \dfrac{d}{dx}\sin x=\cos x,\quad \dfrac{d}{dx}\cos x=-\sin x,\quad \dfrac{d}{dx}\tan x=\sec^2 x \)
+              </div>
+            </div>
+          </div>
+
+          <!-- Integrales -->
+          <div class="category">
+            <h3>Integrales</h3>
+
+            <div class="item">
+              <div class="title">Potencia</div>
+              <div class="tex">\( \int x^n dx = \dfrac{x^{n+1}}{n+1} + C \quad (n\neq -1) \)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Por partes</div>
+              <div class="tex">\( \int u\, dv = uv - \int v\, du \)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Sustitución</div>
+              <div class="tex">\( \int f(g(x)) g'(x)\, dx = \int f(u)\, du \)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Integrales trigonométricas</div>
+              <div class="tex">
+                \( \int \sin x\,dx = -\cos x + C,\quad \int \cos x\,dx = \sin x + C,\quad \int \sec^2 x\,dx = \tan x + C \)
+              </div>
+            </div>
+          </div>
+
+          <!-- Trigonometría -->
+          <div class="category">
+            <h3>Trigonometría — Identidades y fórmulas</h3>
+
+            <div class="item">
+              <div class="title">Identidad fundamental</div>
+              <div class="tex">\( \sin^2 x + \cos^2 x = 1 \)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Fórmulas de suma y resta</div>
+              <div class="tex">
+                \( \sin(a\pm b) = \sin a \cos b \pm \cos a \sin b \) <br>
+                \( \cos(a\pm b) = \cos a \cos b \mp \sin a \sin b \)
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="title">Ángulo doble / mitad</div>
+              <div class="tex">
+                \( \sin 2x = 2\sin x\cos x \) <br>
+                \( \cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x -1 = 1-2\sin^2 x \) <br>
+                \( \sin^2 \dfrac{x}{2} = \dfrac{1-\cos x}{2},\quad \cos^2 \dfrac{x}{2} = \dfrac{1+\cos x}{2} \)
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="title">Producto a suma / suma a producto</div>
+              <div class="tex">
+                \( \sin a \sin b = \dfrac{1}{2}[\cos(a-b)-\cos(a+b)] \) <br>
+                \( \cos a \cos b = \dfrac{1}{2}[\cos(a-b)+\cos(a+b)] \) <br>
+                \( \sin a \cos b = \dfrac{1}{2}[\sin(a+b)+\sin(a-b)] \)
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="title">Tangente y secante</div>
+              <div class="tex">\( \tan x = \dfrac{\sin x}{\cos x},\quad 1+\tan^2 x = \sec^2 x \)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Funciones inversas (derivadas)</div>
+              <div class="tex">
+                \( \dfrac{d}{dx}\arcsin x = \dfrac{1}{\sqrt{1-x^2}},\quad 
+                  \dfrac{d}{dx}\arccos x = -\dfrac{1}{\sqrt{1-x^2}} \) <br>
+                \( \dfrac{d}{dx}\arctan x = \dfrac{1}{1+x^2} \)
+              </div>
+            </div>
+          </div>
+
+          <!-- Límites -->
+          <div class="category">
+            <h3>Límites y constantes</h3>
+
+            <div class="item">
+              <div class="title">Fundamental trig.</div>
+              <div class="tex">\( \lim_{x\to 0} \dfrac{\sin x}{x} = 1 \)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Número e</div>
+              <div class="tex">\( e = \lim_{n\to\infty} \left(1+\dfrac{1}{n}\right)^n \)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">L'Hôpital</div>
+              <div class="tex">Si \( \lim f = \lim g = 0 \) o \( \pm\infty \) y existen, \( \lim \dfrac{f}{g} = \lim \dfrac{f'}{g'} \)</div>
+            </div>
+          </div>
+
+          <!-- Álgebra y series -->
+          <div class="category">
+            <h3>Álgebra • Series • Geometría</h3>
+
+            <div class="item">
+              <div class="title">Suma de una serie geométrica</div>
+              <div class="tex">\( \sum_{k=0}^{n} ar^k = a \dfrac{1-r^{n+1}}{1-r} \) (si \(r\neq1\))</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Serie geométrica infinita</div>
+              <div class="tex">\( \sum_{k=0}^\infty ar^k = \dfrac{a}{1-r} \) para \(|r|<1\)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Área de figuras</div>
+              <div class="tex">
+                \( \text{Área círculo}= \pi r^2,\quad \text{Área triángulo}= \dfrac{1}{2} b h \)
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="title">Perímetro / Teorema</div>
+              <div class="tex">Teorema de Pitágoras: \( a^2+b^2=c^2 \)</div>
+            </div>
+          </div>
+
+          <!-- Ecuaciones diferenciales básicas -->
+          <div class="category">
+            <h3>Ecuaciones diferenciales (básicas)</h3>
+
+            <div class="item">
+              <div class="title">1er orden — separables</div>
+              <div class="tex">Si \( \dfrac{dy}{dx} = g(x) h(y) \Rightarrow \int \dfrac{1}{h(y)} dy = \int g(x) dx\)</div>
+            </div>
+
+            <div class="item">
+              <div class="title">Lineal 1er orden</div>
+              <div class="tex">\( y' + p(x) y = q(x) \) solución por factor integrado</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="app.js" defer></script>
+</body>
+</html>
